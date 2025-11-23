@@ -7,11 +7,19 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-app.use(cors({
-    origin:"https://green-leaff.onrender.com",
-    credentials:true
-}))
+app.use(
+  cors({
+    origin: "https://green-leaff.onrender.com",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
+
+// TEST ROUTE
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully.");
+});
 
 connectDB();
 
